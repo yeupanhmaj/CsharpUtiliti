@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EntityFrameworkUlti
 {
@@ -42,6 +37,7 @@ namespace EntityFrameworkUlti
                             && method.GetParameters().Length == 2)
                     .MakeGenericMethod(typeof(T), type)
                     .Invoke(null, new object[] { source, lambda });
+
             return (IOrderedQueryable<T>)result;
         }
     }
