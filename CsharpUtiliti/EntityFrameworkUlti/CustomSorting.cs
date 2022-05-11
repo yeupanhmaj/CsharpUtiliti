@@ -5,9 +5,9 @@ namespace EntityFrameworkUlti
 {
     public static class CustomSorting
     {
-        public static IOrderedQueryable<T> CustomOrderBy<T>(IQueryable<T> source, string property, string direction)
+        public static IOrderedQueryable<T> CustomOrderBy<T>(IQueryable<T> source, string property, bool isAsc)
         {
-            if (direction.Equals("asc"))
+            if (isAsc)
             {
                 return ApplyOrder(source, property, "OrderBy");
             }
